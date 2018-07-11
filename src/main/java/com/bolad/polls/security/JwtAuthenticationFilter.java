@@ -19,7 +19,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
  * Used to get the JWT token from the request, validate it, load the user 
  * associated with the token, and pass it to Spring Security
  */
-public class JWTAuthenticationFilter extends OncePerRequestFilter {
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	
 	@Autowired
 	private JwtTokenProvider tokenProvider;
@@ -27,7 +27,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 	@Autowired
 	private CustomUserDetailsService customUserDetailsService;
 	
-	private static final Logger logger = LoggerFactory.getLogger(JWTAuthenticationFilter.class);
+	private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

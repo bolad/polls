@@ -16,6 +16,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.bolad.polls.security.JwtAuthenticationEntryPoint;
+import com.bolad.polls.security.JwtAuthenticationFilter;
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(//used to enable method level security based on annotations
@@ -36,11 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		return new JwtAuthenticationFilter();
 	}
 	
-	@Bean
-	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder){
-		authenticationManagerBuilder
-			.userDetailsService(customUserDetailsService)
-			.passwordEncoder(passwordEncoder());
+	@Override
+    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder
+                .userDetailsService(customUserDetailsService)
+                .passwordEncoder(passwordEncoder());
 	}
 	
 	@Bean(BeanIds.AUTHENTICATION_MANAGER)

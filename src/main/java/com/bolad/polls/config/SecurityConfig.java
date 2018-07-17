@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.bolad.polls.security.CustomUserDetailsService;
 import com.bolad.polls.security.JwtAuthenticationEntryPoint;
 import com.bolad.polls.security.JwtAuthenticationFilter;
 

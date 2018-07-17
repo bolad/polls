@@ -13,7 +13,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /*
  * This is the class whose instances will be returned from our CustomUserDetailsService. 
  * Spring Security will use the information stored in the UserPrincipal object to perform 
- * authentication and authorization.
+ * authentication and authorization.This class will implement UserDetails interface, and return 
+ * the UserPrincipal object from loadUserByUsername() method.
  */
 public class UserPrincipal implements UserDetails {
 
